@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="KSA Helper — simple guidance for everyday services in Saudi Arabia." />
+  <title>KSA Helper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="KSA Helper home">
+      <span class="logo">K</span>
+      <span>
+        <strong>KSA Helper</strong>
+        <small data-i18n="tagline">Know what to do next.</small>
+      </span>
+    </a>
+    <button id="langBtn" class="ghost-btn" type="button">العربية</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="badge" data-i18n="badge">For life in Saudi Arabia</div>
+      <h1 data-i18n="heroTitle">What do you need help with today?</h1>
+      <p data-i18n="heroText">Describe your issue or choose a common problem. We’ll point you to the right official service.</p>
+      <div class="search-wrap">
+        <input id="problemSearch" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Try: iqama expired, salary, final exit..." />
+      </div>
+      <div id="quickChips" class="chips"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" data-i18n="problemEyebrow">Problem finder</span>
+          <h2 data-i18n="problemTitle">Start with your situation</h2>
+        </div>
+      </div>
+      <div id="problemGrid" class="grid"></div>
+      <p id="emptyState" class="empty hidden" data-i18n="empty">No matching problem yet. Try a different keyword.</p>
+    </section>
+
+    <section id="services" class="section alt">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" data-i18n="servicesEyebrow">Official services</span>
+          <h2 data-i18n="servicesTitle">Which platform do I need?</h2>
+        </div>
+      </div>
+      <div id="serviceGrid" class="grid services"></div>
+    </section>
+
+    <section id="tracker" class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" data-i18n="trackerEyebrow">Private on your device</span>
+          <h2 data-i18n="trackerTitle">Expiry tracker</h2>
+          <p data-i18n="trackerText">Save important expiry dates locally in this browser. Nothing is sent to a server.</p>
+        </div>
+      </div>
+
+      <form id="trackerForm" class="tracker-form">
+        <select id="docType" required>
+          <option value="iqama" data-i18n="docIqama">Iqama</option>
+          <option value="passport" data-i18n="docPassport">Passport</option>
+          <option value="license" data-i18n="docLicense">Driver’s licence</option>
+          <option value="insurance" data-i18n="docInsurance">Insurance</option>
+          <option value="vehicle" data-i18n="docVehicle">Vehicle registration</option>
+          <option value="contract" data-i18n="docContract">Employment contract</option>
+        </select>
+        <input id="expiryDate" type="date" required />
+        <button class="primary-btn" type="submit" data-i18n="saveDate">Save date</button>
+      </form>
+      <div id="trackerList" class="tracker-list"></div>
+    </section>
+
+    <section id="calculator" class="section alt">
+      <div class="tool-card">
+        <div>
+          <span class="eyebrow" data-i18n="calcEyebrow">Employment tool</span>
+          <h2 data-i18n="calcTitle">End-of-service benefit</h2>
+          <p data-i18n="calcText">For an authoritative estimate, use the Ministry of Human Resources and Social Development’s official calculator.</p>
+        </div>
+        <a class="primary-btn link-btn" href="https://www.hrsd.gov.sa/ministry-services/services/end-service-benefit-calculator" target="_blank" rel="noopener" data-i18n="openCalc">Open official calculator ↗</a>
+      </div>
+    </section>
+
+    <section class="section disclaimer">
+      <strong data-i18n="noticeTitle">Important</strong>
+      <p data-i18n="noticeText">KSA Helper is an independent guidance tool, not a Saudi government service. Rules, fees and eligibility can change. Always verify important actions on the linked official platform.</p>
+    </section>
+  </main>
+
+  <dialog id="problemDialog">
+    <button id="dialogClose" class="dialog-close" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer>
+    <span>© <span id="year"></span> KSA Helper</span>
+    <span data-i18n="footer">Built to make everyday Saudi services easier to understand.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
